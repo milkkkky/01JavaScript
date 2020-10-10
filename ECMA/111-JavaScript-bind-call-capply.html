@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>111-JavaScript-bind&apply&bind</title>
+</head>
+<body>
+    <!--  -->
+</body>
+<script>
+    // bind :修改函数或者方法中的this为指定的对象，并且会返回一个修改之后的新函数给我们
+    // 注意点：bind方法除了可以修改this以外，还可以传递参数，只不过参数必须写在this对象的后面
+    // call :修改函数或者方法中的this为指定的对象，并且会立即调用修改之后的函数
+    // 注意点：call方法除了可以修改this以外，还可以传递参数，只不过参数必须写在this对象的后面
+    // apply :修改函数或者方法中的this为指定的对象，并且会立即调用修改之后的函数
+    // 注意点：call方法除了可以修改this以外，还可以传递参数，只不过参数必须通过数组的方式传递
+    let obj = {
+        name:"lnj"
+    }
+    // function test(a,b){
+    //     console.log(a,b);
+    //     console.log(this);
+    // }
+    // let fn =test.bind(obj,10,20);
+    // fn();
+
+    // test.call(this,10,20);
+
+    // test.apply(obj,[10,20]);
+
+    // test();
+    function Person(){
+        this.name="lnj";
+        this.say=function(){
+            console.log(this);
+        }
+    }
+    let p = new Person();
+    // p.say();
+   let fn= p.say.bind(obj);
+   fn();
+</script>
+</html>
